@@ -1,0 +1,57 @@
+# Xcode
+DerivedData/
+*.xcworkspace
+*.xcuserstate
+*.xccheckout
+*.xcodeproj/*.pbxuser
+*.xcodeproj/*.perspectivev3
+!default.mode1v3
+!default.ideworkspace
+!xcshareddata
+*.xcscmblueprint
+.idea/
+
+# Swift Package Manager
+/.build
+/Packages
+Package.pins
+Package.resolved
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build
+Carthage/Checkouts
+
+# Firebase
+GoogleService-Info.plist
+
+# Build artifacts
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.app
+
+# CoreData
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# Logs
+*.log
+
+# User-specific files
+*.DS_Store
+profile
+xcuserdata/
+*.moved-aside
+*.swp
+*.lock
+
