@@ -22,7 +22,6 @@
 		0B6793F92CB1DA82001DBE18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B6793F82CB1DA82001DBE18 /* Assets.xcassets */; };
 		0B6793FC2CB1DA82001DBE18 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0B6793FB2CB1DA82001DBE18 /* Base */; };
 		0B6794082CB1DE2F001DBE18 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6794072CB1DE2F001DBE18 /* AuthService.swift */; };
-		0B9E90612CB238C4004AC740 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9E90602CB238C4004AC740 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +38,6 @@
 		0B6793FB2CB1DA82001DBE18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B6793FD2CB1DA82001DBE18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B6794072CB1DE2F001DBE18 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		0B9E90602CB238C4004AC740 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +110,6 @@
 				0B6793F32CB1DA80001DBE18 /* LoginViewController.swift */,
 				0B2733782CB2000200163F87 /* RegisterViewController.swift */,
 				0B27337A2CB2046900163F87 /* HomeViewController.swift */,
-				0B9E90602CB238C4004AC740 /* MainViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -207,7 +204,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B9E90612CB238C4004AC740 /* MainViewController.swift in Sources */,
 				0B6793F42CB1DA80001DBE18 /* LoginViewController.swift in Sources */,
 				0B2733792CB2000200163F87 /* RegisterViewController.swift in Sources */,
 				0B6793F02CB1DA80001DBE18 /* AppDelegate.swift in Sources */,

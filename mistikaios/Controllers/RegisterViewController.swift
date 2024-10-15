@@ -14,17 +14,13 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
-    
     @IBOutlet weak var logoImageView: UIImageView!
     
+    var emailToPass: String?
+    var passwordToPass: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        logoImageView.image = UIImage(named: "logo")
-
-
     }
     
     @IBAction func signUpButton(_ sender: Any) {
@@ -32,54 +28,67 @@ class RegisterViewController: UIViewController {
               let password = passwordTextField.text, !password.isEmpty,
               let confirmPassword = confirmPasswordTextField.text, !confirmPassword.isEmpty,
               let name = nameTextField.text, !name.isEmpty else {
-            print("Por favor completa todos los campos.")
+            showAlert(title: "Error", message: "Por favor completa todos los campos.")
             return
         }
         
         // Validar la contraseña
         if password != confirmPassword {
-            print("Las contraseñas no coinciden.")
+            showAlert(title: "Error", message: "Las contraseñas no coinciden.")
             return
         }
         
         if password.count < 6 {
-            print("La contraseña debe tener al menos 4 caracteres.")
+            showAlert(title: "Error", message: "La contraseña debe tener al menos 6 caracteres.")
             return
         }
         
         // Crear un nuevo usuario en Firebase
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let strongSelf = self else { return }
+            
             if let error = error {
-                print("Error al crear el usuario: \(error.localizedDescription)")
+                strongSelf.showAlert(title: "Error", message: "Se ha producido un error al registrar el usuario: \(error.localizedDescription)")
                 return
             }
             
-            // Si la cuenta se creó con éxito, puedes obtener el usuario
+            // Si la cuenta se creó con éxito, obtener el usuario
             guard let user = authResult?.user else { return }
             print("Usuario registrado: \(user.uid)")
             
-            // Aquí puedes guardar información adicional del usuario, como el nombre
-            // en la base de datos de Firestore si lo deseas.
+            self?.emailToPass = email
+            self?.passwordToPass = password
             
-            // Navegar a la siguiente pantalla o mostrar un mensaje de éxito
-            self.performSegue(withIdentifier: "homeScreen", sender: self)
+            // Mostrar alerta de éxito
+            strongSelf.showAlert(title: "Éxito", message: "Usuario creado con éxito.") {
+                // Regresar a LoginViewController
+                strongSelf.navigationController?.popViewController(animated: true)
+            }
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //
+    // Función para mostrar alertas
+    private func showAlert(title: String, message: String, completion: (() -> Void)? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { _ in
+            completion?()
+        }))
+        self.present(alertController, animated: true, completion: nil)
     }
-    
     
     @IBAction func goToLoginButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let loginVC = segue.destination as? LoginViewController {
+            loginVC.email = emailToPass
+            loginVC.password = passwordToPass
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    
-    
 }
