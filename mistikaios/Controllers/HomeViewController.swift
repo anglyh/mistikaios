@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class HomeViewController: UIViewController {
 
@@ -14,14 +15,23 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var closeSessionButton: UIButton!
     
+    var email: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        print("HomeViewController - viewDidLoad")
+        emailLabel.text = email
     }
     
 
     @IBAction func closeSessionButton(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            navigationController?.popViewController(animated: true)
+        } catch {
+            // Se ha producido un error
+            print("Error al cerrar sesión: \(error.localizedDescription)")
+        }
     }
     /*
     // MARK: - Navigation

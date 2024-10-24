@@ -14,15 +14,24 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    var email: String?
+    var password: String?
+    
+    private var hasNavigatedToHome = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        logoImageView.image = UIImage(named: "logo")
 
+        // Verificar si el usuario ya está autenticado
+        if let currentUser = Auth.auth().currentUser, !hasNavigatedToHome {
+            navigateToHome(withEmail: currentUser.email ?? "Usuario")
+            hasNavigatedToHome = true // Cambiar la bandera
+        }
         
+        emailTextField.text = email
+        passwordTextField.text = password
     }
-    
-    
+
     @IBAction func loginButton(_ sender: Any) {
         guard let email = emailTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty else {
@@ -38,20 +47,24 @@ class LoginViewController: UIViewController {
                 return
             }
             
-            // Si el inicio de sesión es exitoso
-            print("Inicio de sesión exitoso: \(authResult?.user.uid ?? "")")
-            
-            // Aquí puedes navegar a la siguiente pantalla
-            // strongSelf.performSegue(withIdentifier: "homeScreen", sender: strongSelf)
+            // Navegar a la pantalla principal después de un inicio de sesión exitoso
+            strongSelf.navigateToHome(withEmail: email)
         }
+    }
+    
+    private func navigateToHome(withEmail email: String) {
+        print("Navegando a HomeViewController con email: \(email)")
+        performSegue(withIdentifier: "goToHomeScreen", sender: email)
     }
     
     @IBAction func goToRegisterScreenButton(_ sender: Any) {
         performSegue(withIdentifier: "goToRegisterScreen", sender: self)
     }
     
-
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
 
 }
 
