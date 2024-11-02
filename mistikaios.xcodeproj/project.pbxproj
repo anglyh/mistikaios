@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B2733692CB1ED7C00163F87 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B2733682CB1ED7C00163F87 /* GoogleService-Info.plist */; };
 		0B27336D2CB1EE8D00163F87 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0B27336C2CB1EE8D00163F87 /* FirebaseAuth */; };
 		0B27336F2CB1F03E00163F87 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0B27336E2CB1F03E00163F87 /* FirebaseDatabase */; };
 		0B2733712CB1F06E00163F87 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2733702CB1F06E00163F87 /* FirebaseFirestore */; };
@@ -22,10 +21,13 @@
 		0B6793F92CB1DA82001DBE18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B6793F82CB1DA82001DBE18 /* Assets.xcassets */; };
 		0B6793FC2CB1DA82001DBE18 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0B6793FB2CB1DA82001DBE18 /* Base */; };
 		0B6794082CB1DE2F001DBE18 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6794072CB1DE2F001DBE18 /* AuthService.swift */; };
+		63CDE6D22CC9DB910039F8C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63CDE6D12CC9DB910039F8C0 /* GoogleService-Info.plist */; };
+		63D2F2122CD41DC5008C2C50 /* TurismoDetallesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D2F2112CD41DC5008C2C50 /* TurismoDetallesViewController.swift */; };
+		63E445FF2CD315A90050B115 /* inicioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E445FE2CD315A90050B115 /* inicioViewController.swift */; };
+		63E446012CD315F20050B115 /* LugaresTuristicosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E446002CD315F20050B115 /* LugaresTuristicosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B2733682CB1ED7C00163F87 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0B2733762CB1FE8800163F87 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		0B2733782CB2000200163F87 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		0B27337A2CB2046900163F87 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +40,10 @@
 		0B6793FB2CB1DA82001DBE18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B6793FD2CB1DA82001DBE18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B6794072CB1DE2F001DBE18 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		63CDE6D12CC9DB910039F8C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		63D2F2112CD41DC5008C2C50 /* TurismoDetallesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurismoDetallesViewController.swift; sourceTree = "<group>"; };
+		63E445FE2CD315A90050B115 /* inicioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inicioViewController.swift; sourceTree = "<group>"; };
+		63E446002CD315F20050B115 /* LugaresTuristicosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LugaresTuristicosViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,7 @@
 		0B6793E32CB1DA80001DBE18 = {
 			isa = PBXGroup;
 			children = (
+				63CDE6D12CC9DB910039F8C0 /* GoogleService-Info.plist */,
 				0B6793EE2CB1DA80001DBE18 /* mistikaios */,
 				0B6793ED2CB1DA80001DBE18 /* Products */,
 				0B27336B2CB1EE8D00163F87 /* Frameworks */,
@@ -83,13 +90,15 @@
 			isa = PBXGroup;
 			children = (
 				0B2733762CB1FE8800163F87 /* logo.png */,
-				0B2733682CB1ED7C00163F87 /* GoogleService-Info.plist */,
 				0B6794062CB1DCDA001DBE18 /* Services */,
 				0B6794052CB1DCAA001DBE18 /* Controllers */,
 				0B6794032CB1DC94001DBE18 /* Models */,
 				0B6793EF2CB1DA80001DBE18 /* AppDelegate.swift */,
 				0B6793F12CB1DA80001DBE18 /* SceneDelegate.swift */,
 				0B6793F52CB1DA80001DBE18 /* Main.storyboard */,
+				63D2F2112CD41DC5008C2C50 /* TurismoDetallesViewController.swift */,
+				63E446002CD315F20050B115 /* LugaresTuristicosViewController.swift */,
+				63E445FE2CD315A90050B115 /* inicioViewController.swift */,
 				0B6793F82CB1DA82001DBE18 /* Assets.xcassets */,
 				0B6793FA2CB1DA82001DBE18 /* LaunchScreen.storyboard */,
 				0B6793FD2CB1DA82001DBE18 /* Info.plist */,
@@ -191,7 +200,7 @@
 			files = (
 				0B6793F92CB1DA82001DBE18 /* Assets.xcassets in Resources */,
 				0B2733772CB1FE8800163F87 /* logo.png in Resources */,
-				0B2733692CB1ED7C00163F87 /* GoogleService-Info.plist in Resources */,
+				63CDE6D22CC9DB910039F8C0 /* GoogleService-Info.plist in Resources */,
 				0B6793FC2CB1DA82001DBE18 /* Base in Resources */,
 				0B6793F72CB1DA80001DBE18 /* Base in Resources */,
 			);
@@ -204,8 +213,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63D2F2122CD41DC5008C2C50 /* TurismoDetallesViewController.swift in Sources */,
 				0B6793F42CB1DA80001DBE18 /* LoginViewController.swift in Sources */,
+				63E445FF2CD315A90050B115 /* inicioViewController.swift in Sources */,
 				0B2733792CB2000200163F87 /* RegisterViewController.swift in Sources */,
+				63E446012CD315F20050B115 /* LugaresTuristicosViewController.swift in Sources */,
 				0B6793F02CB1DA80001DBE18 /* AppDelegate.swift in Sources */,
 				0B6794082CB1DE2F001DBE18 /* AuthService.swift in Sources */,
 				0B6793F22CB1DA80001DBE18 /* SceneDelegate.swift in Sources */,
@@ -438,8 +450,9 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.3.0;
+				kind = versionRange;
+				maximumVersion = 10.0.0;
+				minimumVersion = 9.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
