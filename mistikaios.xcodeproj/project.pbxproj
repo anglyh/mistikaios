@@ -21,6 +21,8 @@
 		0B6793F92CB1DA82001DBE18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B6793F82CB1DA82001DBE18 /* Assets.xcassets */; };
 		0B6793FC2CB1DA82001DBE18 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0B6793FB2CB1DA82001DBE18 /* Base */; };
 		0B6794082CB1DE2F001DBE18 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6794072CB1DE2F001DBE18 /* AuthService.swift */; };
+		235B588D2CE2B9A300143770 /* EventosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235B588C2CE2B9A300143770 /* EventosViewController.swift */; };
+		235B588F2CE2BB3500143770 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235B588E2CE2BB3500143770 /* EventCell.swift */; };
 		63CDE6D22CC9DB910039F8C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63CDE6D12CC9DB910039F8C0 /* GoogleService-Info.plist */; };
 		63D2F2122CD41DC5008C2C50 /* TurismoDetallesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D2F2112CD41DC5008C2C50 /* TurismoDetallesViewController.swift */; };
 		63E445FF2CD315A90050B115 /* inicioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E445FE2CD315A90050B115 /* inicioViewController.swift */; };
@@ -40,6 +42,8 @@
 		0B6793FB2CB1DA82001DBE18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B6793FD2CB1DA82001DBE18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B6794072CB1DE2F001DBE18 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		235B588C2CE2B9A300143770 /* EventosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventosViewController.swift; sourceTree = "<group>"; };
+		235B588E2CE2BB3500143770 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		63CDE6D12CC9DB910039F8C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		63D2F2112CD41DC5008C2C50 /* TurismoDetallesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurismoDetallesViewController.swift; sourceTree = "<group>"; };
 		63E445FE2CD315A90050B115 /* inicioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inicioViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 				0B6794052CB1DCAA001DBE18 /* Controllers */,
 				0B6794032CB1DC94001DBE18 /* Models */,
 				0B6793EF2CB1DA80001DBE18 /* AppDelegate.swift */,
+				235B588C2CE2B9A300143770 /* EventosViewController.swift */,
+				235B588E2CE2BB3500143770 /* EventCell.swift */,
 				0B6793F12CB1DA80001DBE18 /* SceneDelegate.swift */,
 				0B6793F52CB1DA80001DBE18 /* Main.storyboard */,
 				63D2F2112CD41DC5008C2C50 /* TurismoDetallesViewController.swift */,
@@ -218,6 +224,8 @@
 				63E445FF2CD315A90050B115 /* inicioViewController.swift in Sources */,
 				0B2733792CB2000200163F87 /* RegisterViewController.swift in Sources */,
 				63E446012CD315F20050B115 /* LugaresTuristicosViewController.swift in Sources */,
+				235B588D2CE2B9A300143770 /* EventosViewController.swift in Sources */,
+				235B588F2CE2BB3500143770 /* EventCell.swift in Sources */,
 				0B6793F02CB1DA80001DBE18 /* AppDelegate.swift in Sources */,
 				0B6794082CB1DE2F001DBE18 /* AuthService.swift in Sources */,
 				0B6793F22CB1DA80001DBE18 /* SceneDelegate.swift in Sources */,
