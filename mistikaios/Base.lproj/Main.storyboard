@@ -403,16 +403,55 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="740"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndK-EO-Ot7">
+                                <rect key="frame" x="139" y="98" width="142.5" height="31"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Lugares Turísticos"/>
+                                <connections>
+                                    <action selector="searchTouristSpots:" destination="FnU-kj-JdZ" eventType="touchUpInside" id="iIi-je-Zhu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="id3-HS-ahM">
+                                <rect key="frame" x="320" y="98" width="73.5" height="31"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Hoteles"/>
+                                <connections>
+                                    <action selector="searchHotels:" destination="FnU-kj-JdZ" eventType="touchUpInside" id="DZn-fR-m8z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJI-iw-fUJ">
+                                <rect key="frame" x="12" y="98" width="109" height="31"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Restaurantes"/>
+                                <connections>
+                                    <action selector="searchRestaurants:" destination="FnU-kj-JdZ" eventType="touchUpInside" id="BEp-l7-WC5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iaV-to-kai"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="id3-HS-ahM" firstAttribute="leading" secondItem="ndK-EO-Ot7" secondAttribute="trailing" constant="38.5" id="4wi-xN-EDa"/>
+                            <constraint firstItem="iaV-to-kai" firstAttribute="bottom" secondItem="VJI-iw-fUJ" secondAttribute="bottom" constant="684" id="bnH-sg-otN"/>
+                            <constraint firstItem="ndK-EO-Ot7" firstAttribute="centerY" secondItem="id3-HS-ahM" secondAttribute="centerY" id="byT-mt-j7B"/>
+                            <constraint firstItem="ndK-EO-Ot7" firstAttribute="leading" secondItem="VJI-iw-fUJ" secondAttribute="trailing" constant="18" id="hgH-Mn-nQw"/>
+                            <constraint firstItem="VJI-iw-fUJ" firstAttribute="top" secondItem="iaV-to-kai" secondAttribute="top" constant="10" id="lqA-Vh-eqb"/>
+                            <constraint firstItem="VJI-iw-fUJ" firstAttribute="leading" secondItem="iaV-to-kai" secondAttribute="leading" constant="12" id="vMx-my-J4g"/>
+                            <constraint firstItem="VJI-iw-fUJ" firstAttribute="centerY" secondItem="ndK-EO-Ot7" secondAttribute="centerY" id="zOm-Fd-ury"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Inicio" id="Qv9-p1-RPz"/>
                     <navigationItem key="navigationItem" id="W1J-3p-7Jn"/>
+                    <connections>
+                        <outlet property="mapView" destination="j28-jc-UFS" id="YFy-Gr-3rO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6lG-z0-vHR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4742" y="425"/>
+            <point key="canvasLocation" x="4740.579710144928" y="424.55357142857139"/>
         </scene>
         <!--Eventos View Controller-->
         <scene sceneID="nlq-Wq-iPk">
