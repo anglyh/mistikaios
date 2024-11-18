@@ -27,6 +27,7 @@
 		63D2F2122CD41DC5008C2C50 /* TurismoDetallesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D2F2112CD41DC5008C2C50 /* TurismoDetallesViewController.swift */; };
 		63E445FF2CD315A90050B115 /* inicioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E445FE2CD315A90050B115 /* inicioViewController.swift */; };
 		63E446012CD315F20050B115 /* LugaresTuristicosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E446002CD315F20050B115 /* LugaresTuristicosViewController.swift */; };
+		63FD86F32CE2C78500779ACE /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FD86F22CE2C78500779ACE /* Event.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		63D2F2112CD41DC5008C2C50 /* TurismoDetallesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurismoDetallesViewController.swift; sourceTree = "<group>"; };
 		63E445FE2CD315A90050B115 /* inicioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inicioViewController.swift; sourceTree = "<group>"; };
 		63E446002CD315F20050B115 /* LugaresTuristicosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LugaresTuristicosViewController.swift; sourceTree = "<group>"; };
+		63FD86F22CE2C78500779ACE /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				0B6793F82CB1DA82001DBE18 /* Assets.xcassets */,
 				0B6793FA2CB1DA82001DBE18 /* LaunchScreen.storyboard */,
 				0B6793FD2CB1DA82001DBE18 /* Info.plist */,
+				63FD86F22CE2C78500779ACE /* Event.swift */,
 			);
 			path = mistikaios;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				0B6793F42CB1DA80001DBE18 /* LoginViewController.swift in Sources */,
 				63E445FF2CD315A90050B115 /* inicioViewController.swift in Sources */,
 				0B2733792CB2000200163F87 /* RegisterViewController.swift in Sources */,
+				63FD86F32CE2C78500779ACE /* Event.swift in Sources */,
 				63E446012CD315F20050B115 /* LugaresTuristicosViewController.swift in Sources */,
 				235B588D2CE2B9A300143770 /* EventosViewController.swift in Sources */,
 				235B588F2CE2BB3500143770 /* EventCell.swift in Sources */,
