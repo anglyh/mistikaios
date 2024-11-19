@@ -23,6 +23,8 @@
 		0B6794082CB1DE2F001DBE18 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6794072CB1DE2F001DBE18 /* AuthService.swift */; };
 		235B588D2CE2B9A300143770 /* EventosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235B588C2CE2B9A300143770 /* EventosViewController.swift */; };
 		235B588F2CE2BB3500143770 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235B588E2CE2BB3500143770 /* EventCell.swift */; };
+		23C862842CEBECA800DEC94F /* NegociosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C862832CEBECA800DEC94F /* NegociosViewController.swift */; };
+		23C8628C2CEBF35200DEC94F /* NegocioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C8628B2CEBF35200DEC94F /* NegocioCell.swift */; };
 		63CDE6D22CC9DB910039F8C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63CDE6D12CC9DB910039F8C0 /* GoogleService-Info.plist */; };
 		63D2F2122CD41DC5008C2C50 /* TurismoDetallesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D2F2112CD41DC5008C2C50 /* TurismoDetallesViewController.swift */; };
 		63E445FF2CD315A90050B115 /* inicioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E445FE2CD315A90050B115 /* inicioViewController.swift */; };
@@ -45,6 +47,8 @@
 		0B6794072CB1DE2F001DBE18 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		235B588C2CE2B9A300143770 /* EventosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventosViewController.swift; sourceTree = "<group>"; };
 		235B588E2CE2BB3500143770 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		23C862832CEBECA800DEC94F /* NegociosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegociosViewController.swift; sourceTree = "<group>"; };
+		23C8628B2CEBF35200DEC94F /* NegocioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NegocioCell.swift; path = ../../NegocioCell.swift; sourceTree = "<group>"; };
 		63CDE6D12CC9DB910039F8C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		63D2F2112CD41DC5008C2C50 /* TurismoDetallesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurismoDetallesViewController.swift; sourceTree = "<group>"; };
 		63E445FE2CD315A90050B115 /* inicioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inicioViewController.swift; sourceTree = "<group>"; };
@@ -99,9 +103,9 @@
 				0B6794062CB1DCDA001DBE18 /* Services */,
 				0B6794052CB1DCAA001DBE18 /* Controllers */,
 				0B6794032CB1DC94001DBE18 /* Models */,
+				23C862862CEBED4B00DEC94F /* Negocios */,
+				23C8628D2CEBF5A800DEC94F /* Eventos */,
 				0B6793EF2CB1DA80001DBE18 /* AppDelegate.swift */,
-				235B588C2CE2B9A300143770 /* EventosViewController.swift */,
-				235B588E2CE2BB3500143770 /* EventCell.swift */,
 				0B6793F12CB1DA80001DBE18 /* SceneDelegate.swift */,
 				0B6793F52CB1DA80001DBE18 /* Main.storyboard */,
 				63D2F2112CD41DC5008C2C50 /* TurismoDetallesViewController.swift */,
@@ -138,6 +142,24 @@
 				0B6794072CB1DE2F001DBE18 /* AuthService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		23C862862CEBED4B00DEC94F /* Negocios */ = {
+			isa = PBXGroup;
+			children = (
+				23C8628B2CEBF35200DEC94F /* NegocioCell.swift */,
+				23C862832CEBECA800DEC94F /* NegociosViewController.swift */,
+			);
+			path = Negocios;
+			sourceTree = "<group>";
+		};
+		23C8628D2CEBF5A800DEC94F /* Eventos */ = {
+			isa = PBXGroup;
+			children = (
+				235B588C2CE2B9A300143770 /* EventosViewController.swift */,
+				235B588E2CE2BB3500143770 /* EventCell.swift */,
+			);
+			path = Eventos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,8 +251,10 @@
 				63FD86F32CE2C78500779ACE /* Event.swift in Sources */,
 				63E446012CD315F20050B115 /* LugaresTuristicosViewController.swift in Sources */,
 				235B588D2CE2B9A300143770 /* EventosViewController.swift in Sources */,
+				23C862842CEBECA800DEC94F /* NegociosViewController.swift in Sources */,
 				235B588F2CE2BB3500143770 /* EventCell.swift in Sources */,
 				0B6793F02CB1DA80001DBE18 /* AppDelegate.swift in Sources */,
+				23C8628C2CEBF35200DEC94F /* NegocioCell.swift in Sources */,
 				0B6794082CB1DE2F001DBE18 /* AuthService.swift in Sources */,
 				0B6793F22CB1DA80001DBE18 /* SceneDelegate.swift in Sources */,
 				0B27337B2CB2046900163F87 /* HomeViewController.swift in Sources */,
