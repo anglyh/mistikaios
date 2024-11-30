@@ -11,16 +11,22 @@ import SwiftUI
 import MapKit
 import CoreLocation
 
-
-
 class inicioViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
-
+    
+    var menuManager: MenuManager!
     @IBOutlet weak var mapView: MKMapView!
+    
     let startingLocation = CLLocationCoordinate2D(latitude: -16.398803, longitude: -71.536886) // Plaza de Armas de Arequipa
         var localSearch: MKLocalSearch? // Para cancelar la búsqueda anterior si es necesario
 
         override func viewDidLoad() {
             super.viewDidLoad()
+            // Inicializar la función para agregar el título
+            NavigationBarManager.setupTitle(in: self, title: "Mistika")
+            // Inicializar el MenuManager
+            menuManager = MenuManager(parentViewController: self)
+            // Configurar el menú
+            menuManager.setupMenu()
             
             mapView.delegate = self
             mapView.showsUserLocation = false // No depende de la ubicación del usuario real
@@ -36,6 +42,10 @@ class inicioViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleMapTap(_:)))
             mapView.addGestureRecognizer(tapGesture)
         }
+    
+    @IBAction func toggleMenu(_ sender: UIBarButtonItem) {
+        menuManager.toggleMenu()
+    }
         
         // Centra el mapa en una ubicación específica
         func centerMapOnLocation(location: CLLocationCoordinate2D) {

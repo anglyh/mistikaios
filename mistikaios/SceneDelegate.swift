@@ -46,7 +46,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+    
+    func resetToLoginViewController() {
+        // Obtener el storyboard y el LoginViewController
+        guard let windowScene = self.window?.windowScene else { return }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+            
+            // Crear un NavigationController que contenga el LoginViewController
+            let navigationController = UINavigationController(rootViewController: loginVC)
+            
+            // Establecer el NavigationController como el rootViewController
+            let window = UIWindow(windowScene: windowScene)
+            window.rootViewController = navigationController
+            window.makeKeyAndVisible()
 
-
+            // Asignar la ventana principal al SceneDelegate
+            self.window = window
+        }
+    }
 }
 

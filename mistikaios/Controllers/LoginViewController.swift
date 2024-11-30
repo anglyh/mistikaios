@@ -17,15 +17,13 @@ class LoginViewController: UIViewController {
     var email: String?
     var password: String?
     
-    private var hasNavigatedToHome = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Verificar si el usuario ya está autenticado
-        if let currentUser = Auth.auth().currentUser, !hasNavigatedToHome {
+        if let currentUser = Auth.auth().currentUser {
+            // Si ya está autenticado, redirigir al TabBarController directamente
             navigateToHome(withEmail: currentUser.email ?? "Usuario")
-            hasNavigatedToHome = true // Cambiar la bandera
         }
         
         emailTextField.text = email
@@ -35,7 +33,9 @@ class LoginViewController: UIViewController {
     @IBAction func loginButton(_ sender: Any) {
         guard let email = emailTextField.text, !email.isEmpty,
               let password = passwordTextField.text, !password.isEmpty else {
-            print("Por favor completa todos los campos")
+            
+            // Si los campos están vacíos, mostrar un alert de advertencia
+            showAlert(title: "Error", message: "Por favor completa todos los campos.")
             return
         }
         
@@ -53,10 +53,11 @@ class LoginViewController: UIViewController {
     }
     
     private func navigateToHome(withEmail email: String) {
-        print("Navegando a HomeViewController con email: \(email)")
-        performSegue(withIdentifier: "goToHomeScreen", sender: email)
+        print("Navegando a TabBarController con email: \(email)")
+        // Realizamos el segue hacia el Tab Bar Controller
+        performSegue(withIdentifier: "goToTabBarController", sender: email)
     }
-    
+
     @IBAction func goToRegisterScreenButton(_ sender: Any) {
         performSegue(withIdentifier: "goToRegisterScreen", sender: self)
     }
@@ -65,6 +66,15 @@ class LoginViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
-
+    
+    // Método para mostrar una alerta de advertencia
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        // Agregar un botón de "Aceptar"
+        alertController.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
+        
+        // Presentar la alerta
+        present(alertController, animated: true, completion: nil)
+    }
 }
-
