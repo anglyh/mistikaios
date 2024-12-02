@@ -49,7 +49,7 @@ class NegociosViewController: UIViewController {
         case 1:
             currentBusinessType = "hoteles"
         case 2:
-            currentBusinessType = "negocios"
+            currentBusinessType = "agencias"
         default:
             break
         }
