@@ -13,11 +13,17 @@ class NegociosViewController: UIViewController {
     var menuManager: MenuManager!
     var tableViewManager: TableViewManager?
     var businesses: [Business] = []
+    var filteredBusinesses: [Business] = []  // Lista filtrada de negocios
     let businessService = BusinessService()
     
     @IBOutlet weak var tbl_negocios: UITableView!
     @IBOutlet weak var tlb_negociosHeight: NSLayoutConstraint!
+    @IBOutlet weak var seg_negociosControl: UISegmentedControl!
+    @IBOutlet weak var search_negociosBar: UISearchBar!
     
+    // Tipo de negocio actual
+    var currentBusinessType: String = "restaurantes"
+          
     override func viewDidLoad() {
         super.viewDidLoad()
         // Inicializar la función para agregar el título
@@ -29,15 +35,34 @@ class NegociosViewController: UIViewController {
         // Inicializa el TableViewManager
         tableViewManager = TableViewManager(tableView: tbl_negocios, heightConstraint: tlb_negociosHeight)
         
+        // Configurar el SearchBar
+        search_negociosBar.delegate = self  // Asignamos el delegado al ViewController
+        
         fetchBusinesses()
     }
     
+    // Método para manejar el cambio en el Segment Control
+    @IBAction func segmentControlChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            currentBusinessType = "restaurantes"
+        case 1:
+            currentBusinessType = "hoteles"
+        case 2:
+            currentBusinessType = "negocios"
+        default:
+            break
+        }
+        // Filtrar y actualizar la tabla con el tipo de negocio seleccionado
+        fetchBusinesses()
+    }
+    
+    // Método para obtener los negocios filtrados según el tipo
     func fetchBusinesses() {
-        businessService.fetchBusinesses { [weak self] businesses in
-            print("Datos de negocios: \(businesses)")
+        businessService.fetchBusinesses(ofType: currentBusinessType) { [weak self] businesses in
             self?.businesses = businesses
-            print("Fetched businesses: \(businesses.count)")  
-            self?.tbl_negocios.reloadData()
+            self?.filteredBusinesses = businesses  // Inicialmente, los negocios filtrados son todos los negocios
+            self?.tbl_negocios.reloadData()  // Recargar la tabla después de obtener los datos
         }
     }
     
@@ -61,25 +86,17 @@ class NegociosViewController: UIViewController {
 
 extension NegociosViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return businesses.count
+        return filteredBusinesses.count  // Usar la lista filtrada
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "NegocioCell", for: indexPath) as? NegocioCell {
-            let business = businesses[indexPath.row]
+            let business = filteredBusinesses[indexPath.row]  // Mostrar los negocios filtrados
             cell.lbl_negocioTitle.text = business.name
             
-            // Cargar imagen desde URL
-            if let url = URL(string: business.image) {
-                URLSession.shared.dataTask(with: url) { (data, response, error) in
-                    if let data = data, let image = UIImage(data: data) {
-                        DispatchQueue.main.async {
-                            cell.img_negocioImage.image = image
-                        }
-                    }
-                }.resume()
-            }
-
+            // Usamos ImageLoader para cargar y darle estilo a la imagen
+            ImageLoader.loadImage(from: business.image, into: cell.img_negocioImage)
+            
             return cell
         }
         return UITableViewCell()  // En caso de que no se pueda obtener la celda
@@ -94,7 +111,7 @@ extension NegociosViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let business = businesses[indexPath.row]
+        let business = filteredBusinesses[indexPath.row]
         performSegue(withIdentifier: "showDetailsSegue", sender: business)
     }
         
@@ -108,3 +125,19 @@ extension NegociosViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension NegociosViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // Utilizamos el BusinessSearchManager para filtrar los negocios
+        filteredBusinesses = BusinessSearchManager.filterBusinesses(businesses, with: searchText)
+        
+        // Recargamos la tabla para mostrar los resultados filtrados
+        tbl_negocios.reloadData()
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        // Si el usuario cancela la búsqueda, se muestran todos los negocios
+        searchBar.text = ""
+        filteredBusinesses = businesses
+        tbl_negocios.reloadData()
+    }
+}

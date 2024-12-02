@@ -17,10 +17,7 @@ class EventCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        img_eventImage.contentMode = .scaleAspectFill  // Esto ayudará a mantener la proporción de la imagen
-        img_eventImage.layer.cornerRadius = 15
-        img_eventImage.clipsToBounds = true
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

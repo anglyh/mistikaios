@@ -24,9 +24,6 @@ class DetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        img_negocioImage.contentMode = .scaleAspectFill  // Esto ayudará a mantener la proporción de la imagen
-        img_negocioImage.layer.cornerRadius = 15
-        img_negocioImage.clipsToBounds = true
         
         // Asegurarse de que los datos están disponibles
         if let business = business {
@@ -34,16 +31,8 @@ class DetailsViewController: UIViewController {
             
             lbl_negocioType.text = business.typeBusiness
             
-            // Cargar imagen
-            if let url = URL(string: business.image) {
-                URLSession.shared.dataTask(with: url) { (data, response, error) in
-                    if let data = data, let image = UIImage(data: data) {
-                        DispatchQueue.main.async {
-                            self.img_negocioImage.image = image
-                        }
-                    }
-                }.resume()
-            }
+            // Usamos ImageLoader para cargar y darle estilo a la imagen
+            ImageLoader.loadImage(from: business.image, into: img_negocioImage)
             
             // Mostrar la URL
             if let url = URL(string: business.url) {
@@ -51,36 +40,11 @@ class DetailsViewController: UIViewController {
                 wview_negocioUrl.load(request)
             }
             
-            // Convertir coordenadas de latitud y longitud a una dirección
+            // Convertir coordenadas de latitud y longitud a una dirección y actualizar la UI
             let location = CLLocation(latitude: business.ubication.latitude, longitude: business.ubication.longitude)
-            geocodeLocation(location)
-        }
-    }
-    
-    // Función para convertir la latitud y longitud en una dirección
-    func geocodeLocation(_ location: CLLocation) {
-        let geocoder = CLGeocoder()
-        geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
-            if let error = error {
-                print("Error al geocodificar la ubicación: \(error.localizedDescription)")
-                return
-            }
-            
-            if let placemark = placemarks?.first {
-                var address = ""
-                if let street = placemark.thoroughfare {
-                    address += street + ", "
-                }
-                if let city = placemark.locality {
-                    address += city + ", "
-                }
-                if let country = placemark.country {
-                    address += country
-                }
-                DispatchQueue.main.async {
-                    self.lbl_negocioUbication.text = address
-                }
-            }
+
+            // Usar GeocoderManager para geocodificar la ubicación y actualizar la UI
+            GeocoderManager.geocodeLocation(location, label: lbl_negocioUbication)
         }
     }
     

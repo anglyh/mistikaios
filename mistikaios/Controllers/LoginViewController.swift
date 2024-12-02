@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
               let password = passwordTextField.text, !password.isEmpty else {
             
             // Si los campos están vacíos, mostrar un alert de advertencia
-            showAlert(title: "Error", message: "Por favor completa todos los campos.")
+            AlertManager.showErrorAlert(from: self, message: "Por favor completa todos los campos.")
             return
         }
         
@@ -44,6 +44,7 @@ class LoginViewController: UIViewController {
             
             if let error = error {
                 print("Error al iniciar sesión: \(error.localizedDescription)")
+                AlertManager.showErrorAlert(from: strongSelf, message: "Hubo un error al iniciar sesión. Inténtalo nuevamente.")
                 return
             }
             
@@ -65,16 +66,5 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    
-    // Método para mostrar una alerta de advertencia
-    func showAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        // Agregar un botón de "Aceptar"
-        alertController.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
-        
-        // Presentar la alerta
-        present(alertController, animated: true, completion: nil)
     }
 }

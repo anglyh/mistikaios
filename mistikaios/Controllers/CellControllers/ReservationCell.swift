@@ -9,10 +9,11 @@ import UIKit
 
 class ReservationCell: UITableViewCell {
 
+    @IBOutlet weak var lbl_reservationPlace: UILabel!
+    @IBOutlet weak var lbl_reservationNameuser: UILabel!
+    @IBOutlet weak var lbl_reservationPhoneNumber: UILabel!
     @IBOutlet weak var lbl_reservationDate: UILabel!
-    @IBOutlet weak var lbl_reservationState: UILabel!
-    @IBOutlet weak var lbl_reservationAmount: UILabel!
-    @IBOutlet weak var lbl_reservationPayments: UILabel!
+    @IBOutlet weak var lbl_reservationNumberPersons: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

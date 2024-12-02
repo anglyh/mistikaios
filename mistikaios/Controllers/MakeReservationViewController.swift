@@ -33,8 +33,8 @@ class MakeReservationViewController: UIViewController {
               let phoneNumber = txt_phoneNumber.text, !phoneNumber.isEmpty,
               let numberOfPeople = txt_numberPersons.text, let numPeople = Int(numberOfPeople), numPeople > 0 else {
             
-            // Si faltan datos, mostrar un alerta
-            showAlert(title: "Error", message: "Por favor, complete todos los campos.")
+            // Si faltan datos, mostrar una alerta
+            AlertManager.showErrorAlert(from: self, message: "Por favor, complete todos los campos.")
             return
         }
         
@@ -52,8 +52,17 @@ class MakeReservationViewController: UIViewController {
     
     // Función para guardar la reserva en Firebase Realtime Database
     func saveReservation(_ reservation: Reservation) {
-        let ref = Database.database().reference().child("reservations").childByAutoId()  // Genera un ID único
-        ref.setValue([
+        // Primero obtenemos el UID del usuario actual
+        guard let userId = Auth.auth().currentUser?.uid else {
+            print("Error: No se pudo obtener el UID del usuario.")
+            return
+        }
+        
+        let ref = Database.database().reference()
+        
+        // Guardamos la reserva en el nodo del usuario
+        let userReservationsRef = ref.child("users").child(userId).child("reservations").childByAutoId()
+        userReservationsRef.setValue([
             "fullName": reservation.fullName,
             "phoneNumber": reservation.phoneNumber,
             "date": reservation.date,
@@ -61,28 +70,14 @@ class MakeReservationViewController: UIViewController {
             "businessTitle": reservation.businessTitle
         ]) { (error, _) in
             if let error = error {
-                // Si ocurre un error al guardar
+                // Si ocurre un error al guardar, mostrar una alerta de error
                 print("Error al guardar la reserva: \(error.localizedDescription)")
-                self.showAlert(title: "Error", message: "Hubo un problema al guardar la reserva. Inténtalo de nuevo.")
+                AlertManager.showErrorAlert(from: self, message: "Hubo un problema al guardar la reserva. Inténtalo de nuevo.")
             } else {
-                // Si la reserva se guarda correctamente
+                // Si la reserva se guarda correctamente, mostrar alerta de éxito
                 print("Reserva guardada exitosamente.")
-                self.showSuccessAlert()
+                AlertManager.showSuccessAlert(from: self, message: "Tu reserva ha sido realizada correctamente.")
             }
         }
-    }
-    
-    // Función para mostrar una alerta genérica
-    func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    // Función para mostrar una alerta de éxito
-    func showSuccessAlert() {
-        let alert = UIAlertController(title: "Reserva exitosa", message: "Tu reserva ha sido realizada correctamente.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
 }

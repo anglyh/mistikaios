@@ -37,10 +37,14 @@
 		EF5063EE2CFA499600A788ED /* BusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5063ED2CFA499600A788ED /* BusinessService.swift */; };
 		EF5063F22CFA7D2100A788ED /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5063F12CFA7D2100A788ED /* EventService.swift */; };
 		EF5063F42CFA82E400A788ED /* ReservationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5063F32CFA82E400A788ED /* ReservationService.swift */; };
+		EF76DA7C2CFD12B700D0D4A6 /* ImageLoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF76DA7B2CFD12B700D0D4A6 /* ImageLoaderManager.swift */; };
+		EF76DA7E2CFD16CC00D0D4A6 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF76DA7D2CFD16CC00D0D4A6 /* DateFormatterManager.swift */; };
+		EF76DA802CFD175900D0D4A6 /* GeocoderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF76DA7F2CFD175900D0D4A6 /* GeocoderManager.swift */; };
+		EF76DA822CFD19C600D0D4A6 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF76DA812CFD19C600D0D4A6 /* AlertManager.swift */; };
 		EFA3239F2CF8284F0088D0D3 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA3239E2CF8284F0088D0D3 /* MenuManager.swift */; };
 		EFA323A22CF82C7A0088D0D3 /* NavigationBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA323A12CF82C7A0088D0D3 /* NavigationBarManager.swift */; };
-		EFA323A82CF85C3C0088D0D3 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA323A72CF85C3C0088D0D3 /* WebViewController.swift */; };
 		EFA323AA2CF86CE60088D0D3 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA323A92CF86CE60088D0D3 /* DetailsViewController.swift */; };
+		EFD09ED62CFE11AF007CBCA1 /* BusinessSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD09ED52CFE11AF007CBCA1 /* BusinessSearchManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,10 +76,14 @@
 		EF5063ED2CFA499600A788ED /* BusinessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessService.swift; sourceTree = "<group>"; };
 		EF5063F12CFA7D2100A788ED /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
 		EF5063F32CFA82E400A788ED /* ReservationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationService.swift; sourceTree = "<group>"; };
+		EF76DA7B2CFD12B700D0D4A6 /* ImageLoaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderManager.swift; sourceTree = "<group>"; };
+		EF76DA7D2CFD16CC00D0D4A6 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
+		EF76DA7F2CFD175900D0D4A6 /* GeocoderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocoderManager.swift; sourceTree = "<group>"; };
+		EF76DA812CFD19C600D0D4A6 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		EFA3239E2CF8284F0088D0D3 /* MenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
 		EFA323A12CF82C7A0088D0D3 /* NavigationBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarManager.swift; sourceTree = "<group>"; };
-		EFA323A72CF85C3C0088D0D3 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		EFA323A92CF86CE60088D0D3 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		EFD09ED52CFE11AF007CBCA1 /* BusinessSearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSearchManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,14 +129,13 @@
 			isa = PBXGroup;
 			children = (
 				0B2733762CB1FE8800163F87 /* logo.png */,
-				0B6794062CB1DCDA001DBE18 /* Services */,
 				0B6794032CB1DC94001DBE18 /* Models */,
-				0B6794052CB1DCAA001DBE18 /* Controllers */,
+				0B6794062CB1DCDA001DBE18 /* Services */,
 				EFA323A02CF82AA20088D0D3 /* Managers */,
+				0B6794052CB1DCAA001DBE18 /* Controllers */,
 				0B6793EF2CB1DA80001DBE18 /* AppDelegate.swift */,
 				0B6793F12CB1DA80001DBE18 /* SceneDelegate.swift */,
 				0B6793F52CB1DA80001DBE18 /* Main.storyboard */,
-				EFA323A72CF85C3C0088D0D3 /* WebViewController.swift */,
 				0B6793F82CB1DA82001DBE18 /* Assets.xcassets */,
 				0B6793FA2CB1DA82001DBE18 /* LaunchScreen.storyboard */,
 				0B6793FD2CB1DA82001DBE18 /* Info.plist */,
@@ -140,9 +147,9 @@
 		0B6794032CB1DC94001DBE18 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EF48485D2CF9B22100B19A09 /* Reservation.swift */,
 				EF5063E82CFA13FE00A788ED /* Event.swift */,
 				EF5063EA2CFA142900A788ED /* Business.swift */,
+				EF48485D2CF9B22100B19A09 /* Reservation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,6 +198,11 @@
 				EFA3239E2CF8284F0088D0D3 /* MenuManager.swift */,
 				EFA323A12CF82C7A0088D0D3 /* NavigationBarManager.swift */,
 				EF4848572CF91CE300B19A09 /* TableViewManager.swift */,
+				EF76DA7B2CFD12B700D0D4A6 /* ImageLoaderManager.swift */,
+				EF76DA7D2CFD16CC00D0D4A6 /* DateFormatterManager.swift */,
+				EF76DA7F2CFD175900D0D4A6 /* GeocoderManager.swift */,
+				EF76DA812CFD19C600D0D4A6 /* AlertManager.swift */,
+				EFD09ED52CFE11AF007CBCA1 /* BusinessSearchManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -278,17 +290,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFA323A82CF85C3C0088D0D3 /* WebViewController.swift in Sources */,
 				0B6793F42CB1DA80001DBE18 /* LoginViewController.swift in Sources */,
 				EF5063EE2CFA499600A788ED /* BusinessService.swift in Sources */,
 				EF5063EB2CFA142900A788ED /* Business.swift in Sources */,
 				EF4848582CF91CE300B19A09 /* TableViewManager.swift in Sources */,
+				EF76DA7E2CFD16CC00D0D4A6 /* DateFormatterManager.swift in Sources */,
 				EF5063F22CFA7D2100A788ED /* EventService.swift in Sources */,
 				63E445FF2CD315A90050B115 /* inicioViewController.swift in Sources */,
 				0B2733792CB2000200163F87 /* RegisterViewController.swift in Sources */,
 				EF48485A2CF94C1A00B19A09 /* MakeReservationViewController.swift in Sources */,
 				EF39EEA82CF6629D00C3F822 /* SidebarViewController.swift in Sources */,
 				235B588D2CE2B9A300143770 /* EventosViewController.swift in Sources */,
+				EF76DA802CFD175900D0D4A6 /* GeocoderManager.swift in Sources */,
+				EF76DA822CFD19C600D0D4A6 /* AlertManager.swift in Sources */,
+				EFD09ED62CFE11AF007CBCA1 /* BusinessSearchManager.swift in Sources */,
 				EF4848562CF8FE1500B19A09 /* ReservationCell.swift in Sources */,
 				EF5063F42CFA82E400A788ED /* ReservationService.swift in Sources */,
 				23C862842CEBECA800DEC94F /* NegociosViewController.swift in Sources */,
@@ -299,6 +314,7 @@
 				EF5063E92CFA13FE00A788ED /* Event.swift in Sources */,
 				EFA323AA2CF86CE60088D0D3 /* DetailsViewController.swift in Sources */,
 				23C8628C2CEBF35200DEC94F /* NegocioCell.swift in Sources */,
+				EF76DA7C2CFD12B700D0D4A6 /* ImageLoaderManager.swift in Sources */,
 				EFA3239F2CF8284F0088D0D3 /* MenuManager.swift in Sources */,
 				0B6794082CB1DE2F001DBE18 /* AuthService.swift in Sources */,
 				0B6793F22CB1DA80001DBE18 /* SceneDelegate.swift in Sources */,

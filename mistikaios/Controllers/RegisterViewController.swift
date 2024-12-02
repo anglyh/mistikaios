@@ -28,18 +28,18 @@ class RegisterViewController: UIViewController {
               let password = passwordTextField.text, !password.isEmpty,
               let confirmPassword = confirmPasswordTextField.text, !confirmPassword.isEmpty,
               let name = nameTextField.text, !name.isEmpty else {
-            showAlert(title: "Error", message: "Por favor completa todos los campos.")
+            AlertManager.showErrorAlert(from: self, message: "Por favor completa todos los campos.")
             return
         }
         
         // Validar la contraseña
         if password != confirmPassword {
-            showAlert(title: "Error", message: "Las contraseñas no coinciden.")
+            AlertManager.showErrorAlert(from: self, message: "Las contraseñas no coinciden.")
             return
         }
         
         if password.count < 6 {
-            showAlert(title: "Error", message: "La contraseña debe tener al menos 6 caracteres.")
+            AlertManager.showErrorAlert(from: self, message: "La contraseña debe tener al menos 6 caracteres.")
             return
         }
         
@@ -48,7 +48,7 @@ class RegisterViewController: UIViewController {
             guard let strongSelf = self else { return }
             
             if let error = error {
-                strongSelf.showAlert(title: "Error", message: "Se ha producido un error al registrar el usuario: \(error.localizedDescription)")
+                AlertManager.showErrorAlert(from: strongSelf, message: "Se ha producido un error al registrar el usuario: \(error.localizedDescription)")
                 return
             }
             
@@ -60,20 +60,11 @@ class RegisterViewController: UIViewController {
             self?.passwordToPass = password
             
             // Mostrar alerta de éxito
-            strongSelf.showAlert(title: "Éxito", message: "Usuario creado con éxito.") {
+            AlertManager.showSuccessAlert(from: strongSelf, message: "Usuario creado con éxito.") {
                 // Regresar a LoginViewController
                 strongSelf.navigationController?.popViewController(animated: true)
             }
         }
-    }
-    
-    // Función para mostrar alertas
-    private func showAlert(title: String, message: String, completion: (() -> Void)? = nil) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { _ in
-            completion?()
-        }))
-        self.present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func goToLoginButton(_ sender: Any) {

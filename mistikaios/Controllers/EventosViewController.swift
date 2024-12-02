@@ -31,11 +31,6 @@ class EventosViewController: UIViewController {
         menuManager.setupMenu()
         tableViewManager = TableViewManager(tableView: tbl_events, heightConstraint: tlb_eventsHeight)
         
-        //Configurar el formato de la imagen
-        img_eventRandom.contentMode = .scaleAspectFill
-        img_eventRandom.layer.cornerRadius = 15
-        img_eventRandom.clipsToBounds = true
-        
         // Obtener los eventos
         fetchEvents()
     }
@@ -70,16 +65,8 @@ class EventosViewController: UIViewController {
             // Actualizar el título en el UILabel
             lbl_eventRandom.text = event.title
             
-            // Cargar la imagen desde la URL del evento
-            if let url = URL(string: event.imageUri) {
-                URLSession.shared.dataTask(with: url) { (data, response, error) in
-                    if let data = data, let image = UIImage(data: data) {
-                        DispatchQueue.main.async {
-                            self.img_eventRandom.image = image
-                        }
-                    }
-                }.resume()
-            }
+            // Usamos ImageLoader para cargar y darle estilo a la imagen
+            ImageLoader.loadImage(from: event.imageUri, into: img_eventRandom)
         }
     }
     
@@ -116,30 +103,18 @@ extension EventosViewController: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as? EventCell {
             let event = events[indexPath.row]
             cell.lbl_eventTitle.text = event.title
-            // Mostrar fecha con formato
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .long
-            dateFormatter.timeStyle = .none
-            cell.lbl_eventDate.text = dateFormatter.string(from: event.date) // Aquí ya no es necesario usar `if let`
+            
+            // Mostrar fecha con formato usando DateFormatterManager
+            cell.lbl_eventDate.text = DateFormatterManager.formatDate(event.date)
                     
+            // Mostrar hora del evento usando DateFormatterManager
+            cell.lbl_eventHour.text = DateFormatterManager.formatHour(event.date)
+            
             // Mostrar lugar (dirección)
             cell.lbl_eventPlace.text = event.location.address
-                    
-            // Mostrar hora del evento (si tienes un campo separado de hora o si la fecha incluye hora)
-            let hourFormatter = DateFormatter()
-            hourFormatter.dateFormat = "h:mm a"  // Formato de hora
-            cell.lbl_eventHour.text = hourFormatter.string(from: event.date)
             
-            // Cargar imagen desde URL
-            if let url = URL(string: event.imageUri) {
-                URLSession.shared.dataTask(with: url) { (data, response, error) in
-                    if let data = data, let image = UIImage(data: data) {
-                        DispatchQueue.main.async {
-                            cell.img_eventImage.image = image
-                        }
-                    }
-                }.resume()
-            }
+            // Usamos ImageLoader para cargar y darle estilo a la imagen
+            ImageLoader.loadImage(from: event.imageUri, into: cell.img_eventImage)
             
             return cell
         }
